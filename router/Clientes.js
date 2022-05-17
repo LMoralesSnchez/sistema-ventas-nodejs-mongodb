@@ -19,4 +19,21 @@ router.get('/', async(req, res)  =>{
     
 })
 
+router.get('/agregar-cliente', (req,res) =>{
+    res.render('agregar-cliente')
+})
+
+router.post('/', async(req, res) =>{
+    const body = req.body 
+    
+    try {
+        const clienteDB = new Cliente(body)
+        await clienteDB.save()
+
+        res.redirect('/clientes')
+    }catch (error){
+        console.log(error)
+    }
+})
+
 module.exports = router
