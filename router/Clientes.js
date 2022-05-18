@@ -59,7 +59,7 @@ router.get('/:id', async(req,res) =>{
     }
 })
 
-router.delete('/:id', async(req, res) =>{
+/* router.delete('/:id', async(req, res) =>{
     const id = req.params.id
 
     try {
@@ -79,7 +79,7 @@ router.delete('/:id', async(req, res) =>{
     } catch (error) {
         console.log(error)
     }
-})
+}) */
 
 router.put('/:id', async(req,res)=>{
     const id = req.params.id
