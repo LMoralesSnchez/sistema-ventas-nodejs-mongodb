@@ -1,0 +1,39 @@
+<%- include("template/cabecera", {tituloweb: "Detalle del Cliente"}) %> 
+
+    <div class="container">
+     <h1>Detalle del Cliente</h1>
+     <% if (error) { %>
+        <p>
+            <%= mensaje %> 
+        </p> 
+        <a href="/clientes" class="btn btn-dark btn">Volver al Listado de Clientes</a>
+     <% } %>
+
+     <% if (!error) { %>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">id</th>
+                <th scope="col">Identificación</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Telefono</th>
+                <th scope="col">Direccion</th>
+                <th scope="col">Ciudad</th>
+                <th scope="col">Acción</th>
+              </tr>
+            </thead>
+            <tbody>
+                        <tr>
+                            <th scope="row"><%= cliente.id %> </th>
+                            <td><%= cliente.identificacion %></td>
+                            <td><%= cliente.nombre %></td>
+                            <td><%= cliente.telefono %></td>
+                            <td><%= cliente.direccion %></td>
+                            <td><%= cliente.ciudad %></td>     
+                        </tr> 
+            </tbody>
+          </table>
+     <% } %>
+    </div>
+    
+<%- include("template/footer" ) %> 
