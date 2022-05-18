@@ -81,4 +81,24 @@ router.delete('/:id', async(req, res) =>{
     }
 })
 
+router.put('/:id', async(req,res)=>{
+    const id = req.params.id
+    const body = req.body
+
+    try {
+        const clienteDB = await Cliente.findByIdAndUpdate(id, body, { useFindAndModify: false })
+        console.log(clienteDB)
+
+        res.json({
+            estado: true,
+            mensaje: 'editado'
+        })
+    } catch (error) {
+        res.json({
+            estado: false,
+            mensaje: 'Fallo al Editar'
+        })
+    }
+})
+
 module.exports = router
