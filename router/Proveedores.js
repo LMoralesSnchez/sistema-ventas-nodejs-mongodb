@@ -21,4 +21,21 @@ router.get('/', async(req, res) =>{
     }
 })
 
+router.get('/agregar-proveedor', (req,res) =>{
+   res.render('agregar-proveedor') 
+})
+
+router.post('/', async(req, res) =>{
+    const body = req.body
+    try {
+        const proveedorDB = new Proveedor(body)
+        await proveedorDB.save()
+        console.log(proveedorDB)
+
+        res.redirect('/proveedores')
+    } catch (error) {
+        console.log(error)
+    }
+})
+
 module.exports = router;
