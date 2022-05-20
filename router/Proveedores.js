@@ -83,4 +83,26 @@ router.delete('/:id', async(req, res)=>{
     }
 } )
 
+router.put('/:id', async(req,res)=>{
+    const id = req.params.id
+    const body = req.body
+
+    try {
+        
+        const proveedorDB = await Proveedor.findByIdAndUpdate(id, body, { useFindAndModify: false })
+        console.log(proveedorDB)
+
+        res.json({
+            estado: true, 
+            mensaje: 'Editado'
+        })
+    } catch (error) {
+        console.log(error)
+        res.json({
+            estado: true, 
+            mensaje: 'Editado'
+        })
+    }
+})
+
 module.exports = router;
