@@ -53,7 +53,7 @@
 
             formularioEditar.addEventListener('submit', async (e) => {
                 e.preventDefault()
-                console.log('submit')
+                /* console.log('submit') */
 
                 const nombre = formularioEditar.elements['nombre'].value
                 const telefono = formularioEditar.elements['telefono'].value
@@ -81,8 +81,6 @@
                 } catch (error) {
                     console.log(error)
                 }
-
-
             })
 
         </script>
