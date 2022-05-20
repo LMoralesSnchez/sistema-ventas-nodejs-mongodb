@@ -1,0 +1,47 @@
+<%- include("template/cabecera", {tituloweb: "Agregar Proveedor"}) %> 
+
+<div class="container">
+    <h1>Agregar Proveedor</h1>
+    <form action="/proveedores" method="post">
+        <input 
+        type="number"
+        placeholder="ID del Proveedor"
+        class="form-control my-2"
+        min="1"
+        name='idProveedor'
+        required
+        >
+        <input 
+        type="text"
+        placeholder="Nombre del Proveedor"
+        class="form-control my-2"
+        name="nombre"
+        required
+        >
+        <input 
+        type="number"
+        placeholder="Telefono del Proveedor"
+        class="form-control my-2"
+        name="telefono"
+        required
+        >
+        <input 
+        type="text"
+        placeholder="Direccion del Proveedor"
+        class="form-control my-2"
+        name='direccion'
+        required
+        >
+        <input 
+        type="text"
+        placeholder="Ciudad del Proveedor"
+        class="form-control my-2"
+        name="ciudad"
+        required
+        >
+        <button
+        class="btn btn-success btn-block">Agregar Proveedor</button>
+    </form>
+
+</div>
+<%- include("template/footer" ) %> 
