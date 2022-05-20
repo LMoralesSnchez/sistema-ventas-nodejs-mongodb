@@ -61,4 +61,26 @@ router.get('/:id', async (req, res) =>{
     }
 })
 
+router.delete('/:id', async(req, res)=>{
+    const id = req.params.id
+
+    try {
+        const proveedorDB = await Proveedor.findByIdAndDelete({_id: id})
+
+        if(proveedorDB){
+            res.json({
+                estado: true, 
+                mensaje: 'Eliminado'
+            })
+        } else {
+            res.json({
+                estado: false, 
+                mensaje: 'fallo al eliminar'
+            })
+        }
+    } catch (error) {
+        console.log(error)    
+    }
+} )
+
 module.exports = router;
