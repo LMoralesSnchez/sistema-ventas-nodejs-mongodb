@@ -38,4 +38,27 @@ router.post('/', async(req, res) =>{
     }
 })
 
+router.get('/:id', async (req, res) =>{
+
+    const id = req.params.id
+
+    try {
+
+        const proveedorDB = await Proveedor.findOne({_id: id})
+        console.log(proveedorDB)
+
+        res.render('detalle-proveedor',{
+            proveedor: proveedorDB,
+            error: false
+        })
+
+    } catch (error) {
+        res.render('/detalle-proveedor',{
+            proveedor: proveedorDB,
+            error: false, 
+            mensaje: 'No se encuentra el id seleccionado'
+        })
+    }
+})
+
 module.exports = router;
