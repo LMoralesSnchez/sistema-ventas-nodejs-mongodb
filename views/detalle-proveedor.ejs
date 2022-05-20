@@ -1,0 +1,37 @@
+<%- include("template/cabecera", {tituloweb: "Detalle del Proveedor"}) %> 
+
+<div class="container">
+    <h1>Detalle del Proveedor</h1>
+    <% if (error) { %>
+        <p>
+            <%= mensaje %>
+        </p>
+      <a href="/proveedores" class="btn btn-dark btn-block">Volver al listado de proveedores</a>
+    <% } %>
+    <% if (!error) { %>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">id</th>
+                <th scope="col">idProveedor</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Telefono</th>
+                <th scope="col">Direccion</th>
+                <th scope="col">Ciudad</th>
+                <th scope="col">Accion</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row"><%= proveedor.id %> </th>
+                <td><%= proveedor.idProveedor %></td>
+                <td><%= proveedor.nombre %></td>
+                <td><%= proveedor.telefono %></td>
+                <td><%= proveedor.direccion %></td>
+                <td><%= proveedor.ciudad %></td>  
+              </tr>
+            </tbody>
+          </table>
+    <% } %>
+</div>
+<%- include("template/footer" ) %> 
