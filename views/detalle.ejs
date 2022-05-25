@@ -11,6 +11,13 @@
         <% if (!error) { %>
 
             <form id= "formularioEditar" data-id="<%=producto.id%>">
+                <input 
+                type="hidden"
+                placeholder="ID del Producto"
+                class = "form-control my-2"
+                name="idProducto"
+                id="idProductoInput"
+             >
                 <input
                     type="text"
                     class="form-control my-2"
@@ -82,6 +89,7 @@
     formularioEditar.addEventListener('submit', async(e)=>{
         e.preventDefault()
         
+        const idProducto = document.querySelector('#idProductoInput').value
         const nombre = formularioEditar.elements['nombre'].value
         const descripcion = document.querySelector('#descripcionInput').value
         const precio = document.querySelector('#precioInput').value
@@ -93,7 +101,7 @@
                 headers:{
                     'Content-Type': 'application/json'
                 },
-                body:JSON.stringify({id, nombre, descripcion, precio})  
+                body:JSON.stringify({id, idProducto, nombre, descripcion, precio})  
             })
             const res = await data.json()
             if(res.estado){
