@@ -1,0 +1,35 @@
+<%- include("template/cabecera" , {tituloweb: "Pagina de inicio"}) %> 
+
+    <div class="container">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">id</th>
+                <th scope="col">idVenta</th>
+                <th scope="col">Cantidad</th>
+                <th scope="col">idProducto</th>
+                <th scope="col">identificacion</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">Accion</th>
+              </tr>
+            </thead>
+            <tbody>
+
+                <% if (arrayVentas.length > 0) { %>
+                    <% arrayVentas.forEach(venta => { %>
+                        <tr>
+                            <th scope="row"><%=venta.id  %></th>
+                            <td><%= venta.idVenta %> </td>
+                            <td><%= venta.cantidad %> </td>
+                            <td><%=venta.idProducto  %></td>
+                            <td><%=venta.identificacion  %></td>
+                            <td><%= venta.fecha %> </td>
+                            <td>Boton</td>
+                        </tr> 
+                    <% }) %>
+                <% } %>
+            </tbody>
+          </table>
+        
+    </div>
+<%- include("template/footer" ) %> 
