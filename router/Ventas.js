@@ -39,4 +39,24 @@ router.post('/', async(req, res) =>{
     }
 })
 
+router.get('/:id', async(req,res)=>{
+    const id = req.params.id
+
+    try {
+        const ventaDB = await Venta.findOne({_id: id})
+        console.log(ventaDB)
+
+        res.render('detalle-venta',{
+            venta : ventaDB,
+            error: false
+        })
+    } catch (error) {
+        console.log(error)
+        res.render('detalle-venta',{
+            error: false,
+            mensaje: 'No se encuentra el id seleccionado'
+        })
+    }
+})
+
 module.exports = router
