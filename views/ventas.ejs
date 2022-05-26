@@ -25,7 +25,9 @@
                             <td><%=venta.idProducto  %></td>
                             <td><%=venta.identificacion  %></td>
                             <td><%= venta.fecha %> </td>
-                            <td>Boton</td>
+                            <td>
+                                <a href="ventas/<%=venta.id  %>" class= "btn btn-warning btn-sm">Editar</a>
+                            </td>
                         </tr> 
                     <% }) %>
                 <% } %>
