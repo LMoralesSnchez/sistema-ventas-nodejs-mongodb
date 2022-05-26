@@ -59,4 +59,27 @@ router.get('/:id', async(req,res)=>{
     }
 })
 
+router.delete('/:id', async(req, res) =>{
+    const id = req.params.id
+
+    try {
+        const ventaDB = await Venta.findByIdAndDelete({_id: id})
+        
+        if(ventaDB){
+            res.json({
+                estado: true, 
+                mensaje: "Eliminado"
+            })
+        }else{
+            console.log(error)
+            res.json({
+                estado: false, 
+                mensaje: "Fallo a eliminar"
+            })
+        }
+    } catch (error) {
+        console.log(error)
+    }
+})
+
 module.exports = router
