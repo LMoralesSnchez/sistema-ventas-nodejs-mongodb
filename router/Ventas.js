@@ -82,4 +82,24 @@ router.get('/:id', async(req,res)=>{
     }
 }) */
 
+router.put('/:id', async(req,res)=>{
+    const id = req.params.id
+    const body = req.body
+    try {
+
+        const ventaDB = await Venta.findByIdAndUpdate(id, body, { useFindAndModify: false })
+        console.log(ventaDB)
+
+        res.json({
+            estado: true, 
+            mensaje: 'Editado'
+        })
+    } catch (error) {
+        console.log(error)
+        res.json({
+            estado: false, 
+            mensaje: 'fallo al editar'
+        })
+    }
+})
 module.exports = router
