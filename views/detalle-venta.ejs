@@ -1,0 +1,41 @@
+<%- include("template/cabecera", {tituloweb: "Agregar Nueva Venta"}) %> 
+    <div class="container">
+        <h1>Detalle de Venta</h1>
+        <% if (error) { %>
+            <p>
+                <%= mensaje %> 
+            </p>
+            <a href="/venta" class="btn btn-dark btn-block">Volver al Listado de Ventas</a>
+        <% } %>
+
+        <% if (!error) { %>
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">id</th>
+                    <th scope="col">idVenta</th>
+                    <th scope="col">Cantidad</th>
+                    <th scope="col">idProducto</th>
+                    <th scope="col">identificacion</th>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Accion</th>
+                  </tr>
+                </thead>
+                <tbody>
+                        <tr>
+                            <th scope="row"><%=venta.id  %></th>
+                            <td><%= venta.idVenta %> </td>
+                            <td><%= venta.cantidad %> </td>
+                            <td><%=venta.idProducto  %></td>
+                            <td><%=venta.identificacion  %></td>
+                            <td><%= venta.fecha %> </td>
+                            <td>
+                                <a href="ventas/<%=venta.id  %>" class="btn btn-warning btn-sm">Editar</a>
+                            </td>
+                         </tr> 
+                </tbody>
+              </table>
+        <% } %>
+    </div>
+    
+<%- include("template/footer" ) %> 
