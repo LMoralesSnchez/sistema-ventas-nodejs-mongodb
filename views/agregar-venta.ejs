@@ -1,0 +1,14 @@
+<%- include("template/cabecera", {tituloweb: "Agregar Nueva Venta"}) %> 
+    <div class="container">
+        <h1>Agregar Venta</h1>
+        <form action="/ventas" method="post">
+            <input type="number" placeholder="ID de Venta" name="idVenta" class="form-control my-2">
+            <input type="number" placeholder="Cantidad Vendida" name="cantidad" class="form-control my-2">
+            <input type="number" placeholder="ID de Producto Vendido" name="idProducto" class="form-control my-2">
+            <input type="number" placeholder="Identificacion del Cliente" name="identificacion" class="form-control my-2">
+            <input type="datetime-local" placeholder="Fecha de Venta" name="fecha" class="form-control my-2">
+            <button class="btn btn-success btn-block" type="submit">Agregar Venta</button>
+        </form>
+    </div>
+    
+<%- include("template/footer" ) %> 
