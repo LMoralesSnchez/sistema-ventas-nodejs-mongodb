@@ -14,10 +14,10 @@ const port = 3000;
 //Conexion a base de datos
 const mongoose = require('mongoose');
 
-const user = 'testuser';
-const password = 'testuser';
+const user = "prueba";
+const password = "prueba";
 const dbname = 'tienda';
-const uri = `mongodb+srv://${user}:${password}@cluster0.3d7ld.mongodb.net/${dbname}?retryWrites=true&w=majority`; 
+const uri = `mongodb+srv://${user}:${password}@cluster0.snrg6.mongodb.net/${dbname}?retryWrites=true&w=majority`; 
 
 mongoose.connect(uri, 
     {useNewUrlParser: true, useUnifiedTopology: true}
